@@ -1,4 +1,5 @@
 import 'package:bongo_app/features/home/models/event.dart';
+import 'package:bongo_app/features/home/models/movie_chip.dart';
 import 'package:bongo_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Sci-fi', 'Action'],
       isNowShowing: false,
       isTrending: false,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(hours: 1)),
+            DateTime.now().add(const Duration(hours: 2)),
+            DateTime.now().add(const Duration(hours: 3)),
+            DateTime.now().add(const Duration(hours: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(hours: 3)),
+            DateTime.now().add(const Duration(hours: 2)),
+            DateTime.now().add(const Duration(hours: 1)),
+            DateTime.now().add(const Duration(hours: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(hours: 2)),
+            DateTime.now().add(const Duration(hours: 5)),
+            DateTime.now().add(const Duration(hours: 1)),
+            DateTime.now().add(const Duration(hours: 3)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'Oppenheimer',
@@ -55,6 +94,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Thriller'],
       isNowShowing: true,
       isTrending: true,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'Blue Beetle',
@@ -62,6 +139,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Action', 'Sci-fi'],
       isNowShowing: true,
       isTrending: false,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'Godzilla Minus One',
@@ -69,6 +184,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Action', 'Sci-fi'],
       isNowShowing: false,
       isTrending: true,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'Migration',
@@ -76,6 +229,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Comedy', 'Adventure'],
       isNowShowing: true,
       isTrending: false,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'Spiderman: Across the Spiderverse',
@@ -83,6 +274,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Action', 'Comedy'],
       isNowShowing: false,
       isTrending: true,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'The Batman',
@@ -90,6 +319,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Action', 'Crime'],
       isNowShowing: false,
       isTrending: true,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
     Movie(
       title: 'The Marvels',
@@ -97,6 +364,44 @@ class HomeProvider extends ChangeNotifier {
       genres: ['Action', 'Adventure'],
       isNowShowing: true,
       isTrending: true,
+      datesAiring: [
+        DateTime.now().add(const Duration(days: 1)),
+        DateTime.now().add(const Duration(days: 2)),
+        DateTime.now().add(const Duration(days: 3)),
+        DateTime.now().add(const Duration(days: 4)),
+      ],
+      venues: [
+        MovieVenue(
+          location: 'Mlimani City',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Aura Mall',
+          movieType: '3D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+        MovieVenue(
+          location: 'Dar Free Market',
+          movieType: '2D',
+          timesShowing: [
+            DateTime.now().add(const Duration(days: 1)),
+            DateTime.now().add(const Duration(days: 2)),
+            DateTime.now().add(const Duration(days: 3)),
+            DateTime.now().add(const Duration(days: 4)),
+          ],
+        ),
+      ],
     ),
   ];
 
@@ -111,4 +416,10 @@ class HomeProvider extends ChangeNotifier {
 
   List<Movie> get nowShowingMovies =>
       _movies.where((movie) => movie.isNowShowing).toList();
+
+  List<String> get uniqueMovieGenres => _movies
+      .map((movie) => movie.genres)
+      .expand((element) => element)
+      .toSet()
+      .toList();
 }

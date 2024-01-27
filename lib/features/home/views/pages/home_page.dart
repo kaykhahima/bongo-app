@@ -5,6 +5,7 @@ import 'package:bongo_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/activities_tile.dart';
@@ -66,7 +67,7 @@ class _HomePageState extends State<HomePage> {
               SectionHeader(
                 title: 'Now Showing',
                 subtitle: 'Cinema',
-                onTap: () {},
+                onTap: () => context.push('/movies'),
               ),
               SizedBox(
                 height: 165.0,
@@ -85,10 +86,9 @@ class _HomePageState extends State<HomePage> {
               ),
               const Gap(10.0),
               SectionHeader(
-                title: 'Others',
-                subtitle: 'Food, Events and More',
-                onTap: () {},
-              ),
+                  title: 'Events',
+                  subtitle: 'Food, Events and More',
+                  onTap: () => context.push('/events')),
               SizedBox(
                 height: 350.0,
                 child: ListView.builder(

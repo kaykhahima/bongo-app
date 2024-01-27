@@ -1,5 +1,8 @@
 import 'package:bongo_app/features/auth/views/pages/otp_verification_page.dart';
 import 'package:bongo_app/features/auth/views/pages/signup_page.dart';
+import 'package:bongo_app/features/home/models/movie.dart';
+import 'package:bongo_app/features/home/views/pages/movie_booking.dart';
+import 'package:bongo_app/features/home/views/pages/movies_page.dart';
 import 'package:bongo_app/features/onboarding/views/pages/onboarding_page.dart';
 import 'package:bongo_app/features/profile/views/pages/profile_page.dart';
 import 'package:bongo_app/features/tickets/views/pages/tickets_page.dart';
@@ -79,6 +82,22 @@ class AppRoutes {
         path: '/otp-verification',
         name: 'OtpVerification',
         builder: (context, state) => OtpVerificationPage(key: state.pageKey),
+      ),
+      GoRoute(
+        parentNavigatorKey: Utils.rootNavKey,
+        path: '/movies',
+        name: 'movies',
+        builder: (context, state) => MoviesPage(key: state.pageKey),
+        routes: [
+          GoRoute(
+            path: 'movie-booking',
+            name: 'movie-booking',
+            builder: (context, state) {
+              Movie movie = state.extra as Movie;
+              return MovieBooking(movie: movie);
+            },
+          ),
+        ],
       ),
     ],
   );

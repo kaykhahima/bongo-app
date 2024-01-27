@@ -4,6 +4,8 @@ class Movie {
   final List<String> genres;
   final bool isNowShowing;
   final bool isTrending;
+  final List<DateTime> datesAiring;
+  final List<MovieVenue> venues;
 
   Movie({
     required this.title,
@@ -11,5 +13,19 @@ class Movie {
     required this.genres,
     required this.isNowShowing,
     required this.isTrending,
+    required this.datesAiring,
+    required this.venues,
+  });
+}
+
+class MovieVenue {
+  final String location;
+  final String movieType;
+  final List<DateTime> timesShowing;
+
+  MovieVenue({
+    required this.location,
+    required this.movieType,
+    required this.timesShowing,
   });
 }

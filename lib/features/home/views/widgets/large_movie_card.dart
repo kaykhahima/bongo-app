@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../models/movie.dart';
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({super.key, required this.movie});
+class LargeMovieCard extends StatelessWidget {
+  const LargeMovieCard({super.key, required this.movie});
 
   final Movie movie;
 
@@ -16,6 +16,7 @@ class MovieCard extends StatelessWidget {
         context.push('/movies/movie-booking', extra: movie);
       },
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Card(
             color: Theme.of(context).colorScheme.surfaceVariant,
@@ -28,8 +29,8 @@ class MovieCard extends StatelessWidget {
             child: Image.asset(
               movie.posterPath,
               fit: BoxFit.cover,
-              height: 120.0,
-              width: 100.0,
+              height: 300.0,
+              width: 230.0,
             ),
           ),
           SizedBox(

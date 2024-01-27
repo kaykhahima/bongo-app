@@ -5,11 +5,12 @@ class InputField extends StatefulWidget {
   const InputField({
     super.key,
     required this.controller,
-    required this.labelText,
+    this.labelText,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.validator,
     this.suffixIcon,
+    this.prefixIcon,
     this.hintText,
     this.maxLength,
     this.textCapitalization = TextCapitalization.none,
@@ -17,12 +18,13 @@ class InputField extends StatefulWidget {
   });
 
   final TextEditingController controller;
-  final String labelText;
+  final String? labelText;
   final String? hintText;
   final TextInputType keyboardType;
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final int? maxLength;
   final TextCapitalization textCapitalization;
   final VoidCallback? onTap;
@@ -37,8 +39,10 @@ class _InputFieldState extends State<InputField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.labelText),
-        const Gap(8.0),
+        widget.labelText == null
+            ? const SizedBox.shrink()
+            : Text(widget.labelText!),
+        widget.labelText == null ? const SizedBox.shrink() : const Gap(8.0),
         TextFormField(
           controller: widget.controller,
           keyboardType: widget.keyboardType,
@@ -50,10 +54,10 @@ class _InputFieldState extends State<InputField> {
             fontSize: 15.0,
           ),
           decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
             hintText: widget.hintText ?? widget.labelText,
             suffixIcon: widget.suffixIcon,
+            prefixIcon: widget.prefixIcon,
             isDense: true,
           ),
           validator: widget.validator,
