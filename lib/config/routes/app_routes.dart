@@ -1,3 +1,4 @@
+import 'package:bongo_app/features/auth/views/pages/otp_verification_page.dart';
 import 'package:bongo_app/features/auth/views/pages/signup_page.dart';
 import 'package:bongo_app/features/onboarding/views/pages/onboarding_page.dart';
 import 'package:bongo_app/features/profile/views/pages/profile_page.dart';
@@ -72,6 +73,12 @@ class AppRoutes {
         path: '/signin',
         name: 'Signin',
         builder: (context, state) => SignInPage(key: state.pageKey),
+      ),
+      GoRoute(
+        parentNavigatorKey: Utils.rootNavKey,
+        path: '/otp-verification',
+        name: 'OtpVerification',
+        builder: (context, state) => OtpVerificationPage(key: state.pageKey),
       ),
     ],
   );

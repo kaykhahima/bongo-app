@@ -18,7 +18,7 @@ final ThemeData darkTheme = FlexThemeData.dark(
     error: Color(0xffcf6679),
   ),
   surfaceMode: FlexSurfaceMode.highScaffoldLowSurfacesVariantDialog,
-  blendLevel: 9,
+  blendLevel: 2,
   subThemesData: const FlexSubThemesData(
     interactionEffects: false,
     tintedDisabledControls: false,

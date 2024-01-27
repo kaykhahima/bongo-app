@@ -27,6 +27,7 @@ class _BottomNavState extends State<BottomNav> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: FlexColorScheme.themedSystemNavigationBar(
         context,
+        noAppBar: true,
         systemNavBarStyle: FlexSystemNavBarStyle.transparent,
       ),
       child: BottomNavigationBar(
