@@ -73,7 +73,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                   Hero(
                     tag: 'app_icon',
                     child: Image.asset(
-                      AppConstants.appIcon,
+                      AssetConstants.appIcon,
                       height: 120,
                       width: 120,
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'app_body.dart';
+import 'blurred_bottom_nav.dart';
 import 'bottom_nav.dart';
 
 class MainWrapper extends StatefulWidget {
@@ -18,8 +19,10 @@ class _MainWrapperState extends State<MainWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: AppBody(navShell: widget.navShell),
       bottomNavigationBar: BottomNav(navShell: widget.navShell),
+      // bottomNavigationBar: BlurredBottomBar(navShell: widget.navShell),
     );
   }
 }

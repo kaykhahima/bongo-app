@@ -45,7 +45,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
                   child: Image.asset(
-                    AppConstants.onboardingImage1,
+                    AssetConstants.onboardingImage1,
                   ),
                 ),
               ),
@@ -59,7 +59,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
                   child: Image.asset(
-                    AppConstants.onboardingImage2,
+                    AssetConstants.onboardingImage2,
                   ),
                 ),
               ),
@@ -73,7 +73,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
                   child: Image.asset(
-                    AppConstants.onboardingImage3,
+                    AssetConstants.onboardingImage3,
                   ),
                 ),
               ),

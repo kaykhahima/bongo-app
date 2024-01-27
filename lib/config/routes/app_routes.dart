@@ -28,7 +28,7 @@ class AppRoutes {
             navigatorKey: Utils.matchesNavKey,
             routes: [
               GoRoute(
-                path: '/home',
+                path: '/',
                 name: 'Home',
                 builder: (context, state) => HomePage(key: state.pageKey),
               ),
@@ -58,7 +58,7 @@ class AppRoutes {
       ),
       GoRoute(
         parentNavigatorKey: Utils.rootNavKey,
-        path: '/',
+        path: '/onboarding',
         name: 'Onboarding',
         builder: (context, state) => OnBoardingPage(key: state.pageKey),
       ),
