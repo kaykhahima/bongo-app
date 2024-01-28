@@ -54,7 +54,8 @@ class _InputFieldState extends State<InputField> {
             fontSize: 15.0,
           ),
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
             hintText: widget.hintText ?? widget.labelText,
             suffixIcon: widget.suffixIcon,
             prefixIcon: widget.prefixIcon,

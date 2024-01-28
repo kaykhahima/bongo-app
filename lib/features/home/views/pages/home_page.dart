@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
 
     return Scaffold(
-      extendBody: true,
       body: Stack(
         children: [
           ListView(
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () => context.push('/movies'),
               ),
               SizedBox(
-                height: 165.0,
+                height: 250.0,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 14.0),

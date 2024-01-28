@@ -11,6 +11,9 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const width = 150.0;
+    const height = 180.0;
+
     return GestureDetector(
       onTap: () {
         context.push('/movies/movie-booking', extra: movie);
@@ -28,32 +31,29 @@ class MovieCard extends StatelessWidget {
             child: Image.asset(
               movie.posterPath,
               fit: BoxFit.cover,
-              height: 120.0,
-              width: 100.0,
+              height: height,
+              width: width,
             ),
           ),
           SizedBox(
-            width: 100.0,
+            width: width,
             child: Text(
               movie.genres.map((g) => g).join(', '),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontSize: 10.0,
+                    fontSize: 12.0,
                     color: Theme.of(context).colorScheme.outline,
                   ),
             ),
           ),
-          const Gap(2.0),
           SizedBox(
-            width: 100.0,
+            width: width,
             child: Text(
               movie.title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontSize: 12.0,
-                  ),
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
         ],

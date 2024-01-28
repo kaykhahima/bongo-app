@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,38 +26,30 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: FlexColorScheme.themedSystemNavigationBar(
-        context,
-        noAppBar: true,
-        systemNavBarStyle: FlexSystemNavBarStyle.transparent,
-      ),
-      child: BottomNavigationBar(
-        currentIndex: widget.navShell.currentIndex,
-        selectedFontSize: 13,
-        unselectedFontSize: 13,
-        selectedItemColor: Colors.white,
-        onTap: (int index) {
-          setState(() {
-            selectedIndex = index;
-            _goToBranch(index);
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.airplane_ticket_outlined),
-            label: 'Tickets',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
-            label: 'Profile',
-          ),
-        ],
-      ),
+    return BottomNavigationBar(
+      currentIndex: widget.navShell.currentIndex,
+      selectedFontSize: 13,
+      unselectedFontSize: 13,
+      onTap: (int index) {
+        setState(() {
+          selectedIndex = index;
+          _goToBranch(index);
+        });
+      },
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.airplane_ticket_outlined),
+          label: 'Tickets',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_2_outlined),
+          label: 'Profile',
+        ),
+      ],
     );
   }
 }

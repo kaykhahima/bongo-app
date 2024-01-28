@@ -3,6 +3,8 @@ import 'package:bongo_app/features/auth/views/pages/signup_page.dart';
 import 'package:bongo_app/features/home/models/movie.dart';
 import 'package:bongo_app/features/home/views/pages/movie_booking.dart';
 import 'package:bongo_app/features/home/views/pages/movies_page.dart';
+import 'package:bongo_app/features/home/views/pages/payment_page.dart';
+import 'package:bongo_app/features/home/views/pages/seat_selection_page.dart';
 import 'package:bongo_app/features/onboarding/views/pages/onboarding_page.dart';
 import 'package:bongo_app/features/profile/views/pages/profile_page.dart';
 import 'package:bongo_app/features/tickets/views/pages/tickets_page.dart';
@@ -96,6 +98,19 @@ class AppRoutes {
               Movie movie = state.extra as Movie;
               return MovieBooking(movie: movie);
             },
+          ),
+          GoRoute(
+            path: 'seat-selection',
+            name: 'seat-selection',
+            builder: (context, state) {
+              Movie movie = state.extra as Movie;
+              return SeatSelectionPage(movie: movie);
+            },
+          ),
+          GoRoute(
+            path: 'payment',
+            name: 'payment',
+            builder: (context, state) => const PaymentPage(),
           ),
         ],
       ),

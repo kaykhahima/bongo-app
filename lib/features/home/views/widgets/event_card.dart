@@ -38,7 +38,7 @@ class EventCard extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontSize: 10.0,
+                      fontSize: 12.0,
                       color: Theme.of(context).colorScheme.outline,
                     ),
               ),
@@ -50,9 +50,7 @@ class EventCard extends StatelessWidget {
                 event.name,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontSize: 12.0,
-                    ),
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
           ],

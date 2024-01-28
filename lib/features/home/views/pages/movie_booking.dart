@@ -2,7 +2,9 @@ import 'package:bongo_app/features/home/models/movie.dart';
 import 'package:bongo_app/shared/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 import '../widgets/venue_times.dart';
 
@@ -17,14 +19,26 @@ class MovieBooking extends StatefulWidget {
 
 class _MovieBookingState extends State<MovieBooking> {
   List<bool> _isDateSelected = [];
-  List<List<bool>> _isTimeSelected = [];
+  Color _appBarColor = Colors.transparent;
+  List<Color> colors = [];
 
   @override
   void initState() {
     super.initState();
     _isDateSelected = List<bool>.filled(widget.movie.datesAiring.length, false);
-    _isTimeSelected = List<List<bool>>.filled(widget.movie.venues.length,
-        List<bool>.filled(widget.movie.venues[0].timesShowing.length, false));
+    _updateColor();
+  }
+
+  _updateColor() async {
+    final PaletteGenerator paletteGenerator =
+        await PaletteGenerator.fromImageProvider(
+      AssetImage(widget.movie.posterPath),
+    );
+
+    setState(() {
+      colors = paletteGenerator.colors.toList();
+      _appBarColor = colors[0];
+    });
   }
 
   @override
@@ -35,12 +49,15 @@ class _MovieBookingState extends State<MovieBooking> {
           SliverAppBar(
             pinned: true,
             floating: true,
-            expandedHeight: 200.0,
+            //get color from movie poster
+            backgroundColor: _appBarColor,
+            expandedHeight: MediaQuery.of(context).size.height * 0.4,
             title: Text(widget.movie.title),
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 widget.movie.posterPath,
                 fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
               ),
             ),
           ),
@@ -160,7 +177,8 @@ class _MovieBookingState extends State<MovieBooking> {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: PrimaryButton(
-                    onTap: () {},
+                    onTap: () => context.push('/movies/seat-selection',
+                        extra: widget.movie),
                     title: 'Book',
                   ),
                 ),

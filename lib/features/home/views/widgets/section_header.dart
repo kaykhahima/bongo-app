@@ -17,11 +17,11 @@ class SectionHeader extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: Theme.of(context).textTheme.titleSmall,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
       subtitle: Text(
         subtitle,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: Theme.of(context).colorScheme.outline,
             ),
       ),
@@ -34,7 +34,7 @@ class SectionHeader extends StatelessWidget {
             children: [
               Text(
                 'See all',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
               ),

@@ -34,9 +34,7 @@ class ActivityTile extends StatelessWidget {
           const Gap(4.0),
           Text(
             activity.title,
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  fontSize: 12.0,
-                ),
+            style: Theme.of(context).textTheme.titleSmall,
           ),
         ],
       ),

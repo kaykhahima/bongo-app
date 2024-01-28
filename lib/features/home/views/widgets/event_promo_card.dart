@@ -1,4 +1,3 @@
-import 'package:bongo_app/features/home/models/main_activity.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
@@ -71,7 +70,7 @@ class EventPromoCard extends StatelessWidget {
                     event.location,
                   ),
                   SizedBox(
-                    width: 75.0,
+                    width: 80.0,
                     child: RoundedButton(onPressed: () {}, label: 'Book'),
                   ),
                 ],

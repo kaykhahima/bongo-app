@@ -2,6 +2,12 @@ class AssetConstants {
   //app icon
   static const String appIcon = 'assets/images/app_icon.png';
 
+  //theater screen image
+  static const String theaterScreen = 'assets/images/theater_screen.png';
+  static const String airtelMoney = 'assets/images/airtel.png';
+  static const String tigoPesa = 'assets/images/tigo.png';
+  static const String MPesa = 'assets/images/vodacom.png';
+
   //onboarding images
   static const String onboardingImage1 =
       'assets/images/onboarding/girl_in_red.jpeg';
