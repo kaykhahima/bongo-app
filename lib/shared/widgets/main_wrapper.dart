@@ -20,7 +20,6 @@ class _MainWrapperState extends State<MainWrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      extendBodyBehindAppBar: true,
       body: AppBody(navShell: widget.navShell),
       bottomNavigationBar: BottomNav(navShell: widget.navShell),
       // bottomNavigationBar: BlurredBottomBar(navShell: widget.navShell),

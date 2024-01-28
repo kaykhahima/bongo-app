@@ -3,6 +3,7 @@ import 'package:bongo_app/features/home/views/widgets/movie_card.dart';
 import 'package:bongo_app/features/home/views/widgets/section_header.dart';
 import 'package:bongo_app/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -23,13 +24,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
-
     return Scaffold(
-      body: Stack(
-        children: [
-          ListView(
-            children: [
-              ExpandableCarousel(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            forceElevated: true,
+            expandedHeight: 250,
+            elevation: 0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: ExpandableCarousel(
                 options: CarouselOptions(
                   height: 250.0,
                   viewportFraction: 1.0,
@@ -52,89 +56,65 @@ class _HomePageState extends State<HomePage> {
                   );
                 }).toList(),
               ),
-              const Gap(16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: homeProvider.mainActivities
-                      .map((activity) => ActivityTile(activity: activity))
-                      .toList(),
-                ),
-              ),
-              const Gap(16.0),
-              SectionHeader(
-                title: 'Now Showing',
-                subtitle: 'Cinema',
-                onTap: () => context.push('/movies'),
-              ),
-              SizedBox(
-                height: 250.0,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                  itemCount: homeProvider.movies.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final movie = homeProvider.movies[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: MovieCard(movie: movie),
-                    );
-                  },
-                ),
-              ),
-              const Gap(10.0),
-              SectionHeader(
-                  title: 'Events',
-                  subtitle: 'Food, Events and More',
-                  onTap: () => context.push('/events')),
-              SizedBox(
-                height: 350.0,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                  itemCount: homeProvider.events.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final event = homeProvider.events[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: EventCard(event: event),
-                    );
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
-          // Positioned(
-          //   top: 20.0,
-          //   left: 0.0,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       SizedBox(
-          //         height: 40.0,
-          //         width: 300.0,
-          //         child: TextField(
-          //           decoration: InputDecoration(
-          //             hintText: 'Search',
-          //             hintStyle: Theme.of(context).textTheme.bodySmall,
-          //             prefixIcon: const Icon(
-          //               Icons.search,
-          //               color: Colors.white,
-          //               size: 20,
-          //             ),
-          //             filled: true,
-          //             fillColor: Colors.white.withOpacity(0.7),
-          //             border: OutlineInputBorder(
-          //               borderRadius: BorderRadius.circular(8.0),
-          //               borderSide: BorderSide.none,
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                const Gap(16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: homeProvider.mainActivities
+                        .map((activity) => ActivityTile(activity: activity))
+                        .toList(),
+                  ),
+                ),
+                const Gap(16.0),
+                SectionHeader(
+                  title: 'Now Showing',
+                  subtitle: 'Cinema',
+                  onTap: () => context.push('/movies'),
+                ),
+                SizedBox(
+                  height: 250.0,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                    itemCount: homeProvider.movies.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final movie = homeProvider.movies[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                        child: MovieCard(movie: movie),
+                      );
+                    },
+                  ),
+                ),
+                const Gap(10.0),
+                SectionHeader(
+                    title: 'Events',
+                    subtitle: 'Food, Events and More',
+                    onTap: () => context.push('/events')),
+                SizedBox(
+                  height: 350.0,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                    itemCount: homeProvider.events.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final event = homeProvider.events[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                        child: EventCard(event: event),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

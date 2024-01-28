@@ -15,20 +15,22 @@ class EventPromoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double height = 250.0;
+
     return Stack(
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Image.asset(
             event.imagePath,
-            height: 250.0,
+            height: height,
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
           ),
         ),
         Positioned(
           child: Container(
-            height: 250.0,
+            height: height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Colors.white,
