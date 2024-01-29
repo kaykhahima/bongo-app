@@ -22,6 +22,7 @@ class EventsPromoCarousel extends StatelessWidget {
           indicatorRadius: 3.0,
           itemSpacing: 10.0,
           currentIndicatorColor: Theme.of(context).colorScheme.primary,
+          indicatorBackgroundColor: Theme.of(context).colorScheme.outline,
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
         ),
       ),

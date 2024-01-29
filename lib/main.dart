@@ -23,7 +23,8 @@ class BongoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Bongo App',
-      theme: AppTheme.theme,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: Utils.rootScaffoldMessengerKey,

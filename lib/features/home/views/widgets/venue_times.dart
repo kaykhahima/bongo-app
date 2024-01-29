@@ -30,7 +30,12 @@ class _VenueTimesState extends State<VenueTimes> {
         return Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: FilterChip(
-            label: Text(DateFormat.Hm().format(time)),
+            label: Text(DateFormat.Hm().format(time),
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      color: _isTimeSelected[i]
+                          ? Theme.of(context).colorScheme.onPrimary
+                          : Theme.of(context).colorScheme.onSurface,
+                    )),
             padding: const EdgeInsets.all(4.0),
             selected: _isTimeSelected[i],
             onSelected: (bool value) {

@@ -28,8 +28,10 @@ class _SeatSelectionPageState extends State<SeatSelectionPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset(
-                AssetConstants.theaterScreen,
+              Icon(
+                Icons.tv_rounded,
+                size: 80.0,
+                color: Theme.of(context).colorScheme.outline,
               ),
               const Gap(8.0),
               Text(

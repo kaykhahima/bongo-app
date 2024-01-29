@@ -105,8 +105,18 @@ class _MovieBookingState extends State<MovieBooking> {
                                 children: [
                                   Text(
                                     DateFormat.d().format(date),
-                                    style:
-                                        Theme.of(context).textTheme.titleMedium,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                          color: _isDateSelected[index]
+                                              ? Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary
+                                              : Theme.of(context)
+                                                  .colorScheme
+                                                  .onSurface,
+                                        ),
                                   ),
                                   Text(
                                     DateFormat.MMM().format(date),
@@ -116,6 +126,13 @@ class _MovieBookingState extends State<MovieBooking> {
                                         ?.copyWith(
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.bold,
+                                          color: _isDateSelected[index]
+                                              ? Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary
+                                              : Theme.of(context)
+                                                  .colorScheme
+                                                  .onSurface,
                                         ),
                                   ),
                                 ],

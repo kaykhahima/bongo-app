@@ -31,6 +31,7 @@ class _RoundedButtonState extends State<RoundedButton> {
         style: Theme.of(context).textTheme.titleSmall?.copyWith(
               fontSize: 12.0,
               fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
       ),
     );

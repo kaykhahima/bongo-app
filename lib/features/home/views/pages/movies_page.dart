@@ -67,7 +67,15 @@ class _MoviesPageState extends State<MoviesPage> {
                     return Padding(
                       padding: const EdgeInsets.only(right: 4.0),
                       child: FilterChip(
-                        label: Text(genre),
+                        label: Text(genre,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                  color: _isSelected[index]
+                                      ? Theme.of(context).colorScheme.onPrimary
+                                      : Theme.of(context).colorScheme.onSurface,
+                                )),
                         selected: _isSelected[index],
                         onSelected: (bool value) {
                           setState(() {
@@ -125,6 +133,7 @@ class _MoviesPageState extends State<MoviesPage> {
                           children: [
                             Expanded(
                               child: Card(
+                                elevation: 0,
                                 color: Theme.of(context)
                                     .colorScheme
                                     .surfaceVariant,
