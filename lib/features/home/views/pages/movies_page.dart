@@ -186,7 +186,7 @@ class _MoviesPageState extends State<MoviesPage> {
               //     },
               //   ),
               // ),
-              const Gap(24.0),
+              const Gap(56.0),
             ],
           ),
         ),
