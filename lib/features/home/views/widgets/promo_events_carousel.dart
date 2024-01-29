@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/home_provider.dart';
+import '../../provider/the_everything_provider.dart';
 import 'event_promo_card.dart';
 
 class EventsPromoCarousel extends StatelessWidget {
@@ -10,11 +10,11 @@ class EventsPromoCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    final provider = Provider.of<EverythingProvider>(context, listen: false);
 
     return ExpandableCarousel(
       options: CarouselOptions(
-        height: 250.0,
+        height: 300.0,
         viewportFraction: 1.0,
         showIndicator: true,
         autoPlay: true,
@@ -25,7 +25,7 @@ class EventsPromoCarousel extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
         ),
       ),
-      items: homeProvider.events.map((event) {
+      items: provider.events.map((event) {
         return Builder(
           builder: (BuildContext context) {
             return EventPromoCard(event: event);

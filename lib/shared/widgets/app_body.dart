@@ -13,8 +13,6 @@ class AppBody extends StatefulWidget {
 class _AppBodyState extends State<AppBody> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: widget.navShell,
-    );
+    return widget.navShell;
   }
 }

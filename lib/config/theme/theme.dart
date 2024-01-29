@@ -1,6 +1,5 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData theme = darkTheme;
@@ -67,5 +66,5 @@ final ThemeData darkTheme = FlexThemeData.dark(
   visualDensity: FlexColorScheme.comfortablePlatformDensity,
   useMaterial3: true,
   swapLegacyOnMaterial3: true,
-  fontFamily: GoogleFonts.titilliumWeb().fontFamily,
+  fontFamily: 'Inter',
 );

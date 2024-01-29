@@ -2,7 +2,7 @@ import 'package:bongo_app/features/home/models/saved_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/home_provider.dart';
+import '../../provider/the_everything_provider.dart';
 
 class PaymentCardTile extends StatelessWidget {
   const PaymentCardTile({super.key, required this.card});
@@ -11,7 +11,7 @@ class PaymentCardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HomeProvider>(context, listen: false);
+    final provider = Provider.of<EverythingProvider>(context, listen: false);
 
     return Column(
       children: [

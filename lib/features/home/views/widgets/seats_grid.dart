@@ -1,5 +1,5 @@
 import 'package:bongo_app/features/home/models/seat.dart';
-import 'package:bongo_app/features/home/provider/home_provider.dart';
+import 'package:bongo_app/features/home/provider/the_everything_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
@@ -16,12 +16,12 @@ class SeatGrid extends StatelessWidget {
         SizedBox(
           height: 300.0,
           width: double.infinity,
-          child: Consumer<HomeProvider>(builder: (context, homeProvider, _) {
+          child: Consumer<EverythingProvider>(builder: (context, provider, _) {
             return ListView.builder(
-              itemCount: homeProvider.seatRows.length,
+              itemCount: provider.seatRows.length,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                final seatRow = homeProvider.seatRows[index];
+                final seatRow = provider.seatRows[index];
                 final String rowId = seatRow.rowId;
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +51,7 @@ class SeatGrid extends StatelessWidget {
                               seatColumn.number.toString();
                           return GestureDetector(
                             onTap: () {
-                              homeProvider.updateSeatStatus(
+                              provider.updateSeatStatus(
                                 context: context,
                                 rowId: rowId,
                                 columnNumber: columnNumber,

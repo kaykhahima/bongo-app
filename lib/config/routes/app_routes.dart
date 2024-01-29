@@ -1,16 +1,12 @@
-import 'package:bongo_app/features/auth/views/pages/otp_verification_page.dart';
-import 'package:bongo_app/features/auth/views/pages/signup_page.dart';
 import 'package:bongo_app/features/home/models/movie.dart';
 import 'package:bongo_app/features/home/views/pages/movie_booking.dart';
 import 'package:bongo_app/features/home/views/pages/movies_page.dart';
 import 'package:bongo_app/features/home/views/pages/payment_page.dart';
 import 'package:bongo_app/features/home/views/pages/seat_selection_page.dart';
-import 'package:bongo_app/features/onboarding/views/pages/onboarding_page.dart';
-import 'package:bongo_app/features/profile/views/pages/profile_page.dart';
-import 'package:bongo_app/features/tickets/views/pages/tickets_page.dart';
+import 'package:bongo_app/features/profile/profile_page.dart';
+import 'package:bongo_app/features/tickets/tickets_page.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/views/pages/signin_page.dart';
 import '../../features/home/views/pages/home_page.dart';
 import '../../shared/widgets/main_wrapper.dart';
 import '../../utils/utils.dart';
@@ -21,7 +17,6 @@ class AppRoutes {
   static final router = GoRouter(
     navigatorKey: Utils.rootNavKey,
     initialLocation: initialRoute,
-    debugLogDiagnostics: true,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navShell) => MainWrapper(
@@ -30,17 +25,17 @@ class AppRoutes {
         ),
         branches: [
           StatefulShellBranch(
-            navigatorKey: Utils.matchesNavKey,
+            navigatorKey: Utils.homeNavKey,
             routes: [
               GoRoute(
-                path: '/home',
+                path: '/',
                 name: 'Home',
                 builder: (context, state) => HomePage(key: state.pageKey),
               ),
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: Utils.newsNavKey,
+            navigatorKey: Utils.ticketsNavKey,
             routes: [
               GoRoute(
                 path: '/tickets',
@@ -50,7 +45,7 @@ class AppRoutes {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: Utils.tournamentsNavKey,
+            navigatorKey: Utils.profileNavKey,
             routes: [
               GoRoute(
                 path: '/profile',
@@ -60,30 +55,6 @@ class AppRoutes {
             ],
           ),
         ],
-      ),
-      GoRoute(
-        parentNavigatorKey: Utils.rootNavKey,
-        path: '/',
-        name: 'Onboarding',
-        builder: (context, state) => OnBoardingPage(key: state.pageKey),
-      ),
-      GoRoute(
-        parentNavigatorKey: Utils.rootNavKey,
-        path: '/signup',
-        name: 'Signup',
-        builder: (context, state) => SignUpPage(key: state.pageKey),
-      ),
-      GoRoute(
-        parentNavigatorKey: Utils.rootNavKey,
-        path: '/signin',
-        name: 'Signin',
-        builder: (context, state) => SignInPage(key: state.pageKey),
-      ),
-      GoRoute(
-        parentNavigatorKey: Utils.rootNavKey,
-        path: '/otp-verification',
-        name: 'OtpVerification',
-        builder: (context, state) => OtpVerificationPage(key: state.pageKey),
       ),
       GoRoute(
         parentNavigatorKey: Utils.rootNavKey,

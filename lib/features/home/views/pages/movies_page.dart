@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../shared/widgets/input_field.dart';
-import '../../provider/home_provider.dart';
+import '../../provider/the_everything_provider.dart';
 import '../widgets/large_movie_card.dart';
 
 class MoviesPage extends StatefulWidget {
@@ -17,15 +17,14 @@ class MoviesPage extends StatefulWidget {
 class _MoviesPageState extends State<MoviesPage> {
   final _searchController = TextEditingController();
 
-  late HomeProvider _homeProvider;
+  late EverythingProvider _provider;
   List<bool> _isSelected = [];
 
   @override
   void initState() {
     super.initState();
-    _homeProvider = Provider.of<HomeProvider>(context, listen: false);
-    _isSelected =
-        List<bool>.filled(_homeProvider.uniqueMovieGenres.length, false);
+    _provider = Provider.of<EverythingProvider>(context, listen: false);
+    _isSelected = List<bool>.filled(_provider.uniqueMovieGenres.length, false);
   }
 
   @override
@@ -62,9 +61,9 @@ class _MoviesPageState extends State<MoviesPage> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: _homeProvider.uniqueMovieGenres.length,
+                  itemCount: _provider.uniqueMovieGenres.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final genre = _homeProvider.uniqueMovieGenres[index];
+                    final genre = _provider.uniqueMovieGenres[index];
                     return Padding(
                       padding: const EdgeInsets.only(right: 4.0),
                       child: FilterChip(
@@ -87,12 +86,12 @@ class _MoviesPageState extends State<MoviesPage> {
               ),
               const Gap(8.0),
               SizedBox(
-                height: 350.0,
+                height: 370.0,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: _homeProvider.nowShowingMovies.length,
+                  itemCount: _provider.nowShowingMovies.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final movie = _homeProvider.nowShowingMovies[index];
+                    final movie = _provider.nowShowingMovies[index];
                     return Padding(
                       padding: const EdgeInsets.only(right: 4.0),
                       child: LargeMovieCard(movie: movie),
@@ -113,9 +112,9 @@ class _MoviesPageState extends State<MoviesPage> {
                   crossAxisCount: 2,
                   mainAxisSpacing: 20.0,
                   childAspectRatio: 0.6,
-                  children: List.generate(_homeProvider.trendingMovies.length,
-                      (index) {
-                    final movie = _homeProvider.trendingMovies[index];
+                  children:
+                      List.generate(_provider.trendingMovies.length, (index) {
+                    final movie = _provider.trendingMovies[index];
                     return GestureDetector(
                       onTap: () =>
                           context.push('/movies/movie-booking', extra: movie),
@@ -131,10 +130,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                     .surfaceVariant,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12.0),
-                                  side: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.outline,
-                                  ),
+                                  side: BorderSide.none,
                                 ),
                                 child: Image.asset(
                                   movie.posterPath,
@@ -180,9 +176,9 @@ class _MoviesPageState extends State<MoviesPage> {
               //   height: 350.0,
               //   child: ListView.builder(
               //     scrollDirection: Axis.horizontal,
-              //     itemCount: _homeProvider.trendingMovies.length,
+              //     itemCount: _provider.trendingMovies.length,
               //     itemBuilder: (BuildContext context, int index) {
-              //       final movie = _homeProvider.trendingMovies[index];
+              //       final movie = _provider.trendingMovies[index];
               //       return Padding(
               //         padding: const EdgeInsets.only(right: 4.0),
               //         child: LargeMovieCard(movie: movie),

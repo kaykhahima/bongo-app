@@ -15,7 +15,7 @@ class EventPromoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double height = 250.0;
+    const double height = 300.0;
 
     return Stack(
       children: [

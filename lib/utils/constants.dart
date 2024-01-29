@@ -6,7 +6,7 @@ class AssetConstants {
   static const String theaterScreen = 'assets/images/theater_screen.png';
   static const String airtelMoney = 'assets/images/airtel.png';
   static const String tigoPesa = 'assets/images/tigo.png';
-  static const String MPesa = 'assets/images/vodacom.png';
+  static const String mPesa = 'assets/images/vodacom.png';
 
   //onboarding images
   static const String onboardingImage1 =
@@ -26,7 +26,7 @@ class AssetConstants {
       'assets/images/events/the_big_hangout.png';
 
   //movie posters
-  static const String avatar = 'assets/images/movies/avatar.webp';
+  static const String avatar = 'assets/images/movies/avatar.png';
   static const String blueBeetle = 'assets/images/movies/blue_beetle.webp';
   static const String godzillaMinusOne =
       'assets/images/movies/godzilla_minus_one.webp';

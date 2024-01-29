@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 import '../../../../shared/widgets/button.dart';
+import '../widgets/movie_cover.dart';
 import '../widgets/venue_times.dart';
 
 class MovieBooking extends StatefulWidget {
@@ -52,13 +53,9 @@ class _MovieBookingState extends State<MovieBooking> {
             //get color from movie poster
             backgroundColor: _appBarColor,
             expandedHeight: MediaQuery.of(context).size.height * 0.4,
-            title: Text(widget.movie.title),
+            title: const Text('Select Location and Time'),
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                widget.movie.posterPath,
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
-              ),
+              background: MovieCover(movie: widget.movie),
             ),
           ),
           SliverToBoxAdapter(
@@ -172,18 +169,14 @@ class _MovieBookingState extends State<MovieBooking> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 48.0),
-                  child: PrimaryButton(
-                    onPressed: () => context.push('/movies/seat-selection',
-                        extra: widget.movie),
-                    label: 'Book',
-                  ),
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 16.0, right: 16.0, top: 24.0, bottom: 100.0),
+              child: PrimaryButton(
+                onPressed: () =>
+                    context.push('/movies/seat-selection', extra: widget.movie),
+                label: 'Book',
+              ),
             ),
           )
         ],

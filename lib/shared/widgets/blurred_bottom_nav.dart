@@ -21,11 +21,6 @@ class BlurredBottomBar extends StatefulWidget {
 class _BlurredBottomBarState extends State<BlurredBottomBar> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final bottomNavigationBarTheme = theme.bottomNavigationBarTheme.copyWith(
-      backgroundColor: Colors.red,
-    );
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: FlexColorScheme.themedSystemNavigationBar(
         context,
@@ -33,16 +28,18 @@ class _BlurredBottomBarState extends State<BlurredBottomBar> {
         systemNavBarStyle: FlexSystemNavBarStyle.transparent,
       ),
       child: Container(
-        margin: const EdgeInsets.all(12),
-        padding: const EdgeInsets.only(bottom: 32.0),
+        margin: const EdgeInsets.all(0),
+        padding: const EdgeInsets.only(bottom: 28.0),
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface.withOpacity(0.7),
           border: Border.all(color: Colors.transparent),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,15 +52,17 @@ class _BlurredBottomBarState extends State<BlurredBottomBar> {
                         children: [
                           Icon(
                             navItems[i].icon,
-                            color: bottomNavigationBarTheme.unselectedItemColor,
+                            color: Colors.grey,
                           ),
                           const Gap(4.0),
                           Text(
                             navItems[i].label,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color:
-                                  bottomNavigationBarTheme.unselectedItemColor,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelSmall
+                                ?.copyWith(
+                                  color: Colors.grey,
+                                ),
                           ),
                         ],
                       ),
@@ -99,12 +98,12 @@ class NavItem {
 
 List<NavItem> navItems = [
   NavItem(
-    icon: Icons.home_outlined,
+    icon: Icons.home_filled,
     label: 'Home',
     onTap: () {},
   ),
   NavItem(
-    icon: Icons.airplane_ticket_outlined,
+    icon: Icons.confirmation_num_outlined,
     label: 'Tickets',
     onTap: () {},
   ),

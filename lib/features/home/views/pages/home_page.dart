@@ -1,18 +1,13 @@
-import 'package:bongo_app/features/home/provider/home_provider.dart';
+import 'package:bongo_app/features/home/provider/the_everything_provider.dart';
 import 'package:bongo_app/features/home/views/widgets/movie_card.dart';
 import 'package:bongo_app/features/home/views/widgets/section_header.dart';
-import 'package:bongo_app/shared/widgets/input_field.dart';
-import 'package:bongo_app/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/activities_tile.dart';
 import '../widgets/event_card.dart';
-import '../widgets/event_promo_card.dart';
 import '../widgets/home_input_field.dart';
 import '../widgets/promo_events_carousel.dart';
 
@@ -39,23 +34,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    final provider = Provider.of<EverythingProvider>(context, listen: false);
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(
             floating: true,
             forceElevated: true,
-            expandedHeight: 250,
+            expandedHeight: 270,
             elevation: 0,
             flexibleSpace: FlexibleSpaceBar(
-              background: Stack(children: [
-                EventsPromoCarousel(),
-                SizedBox(
-                  height: 80,
-                  child: HomeSearchField(),
-                ),
-              ]),
+              background: Stack(
+                children: [
+                  EventsPromoCarousel(),
+                  SizedBox(
+                    height: 150,
+                    child: HomeSearchField(),
+                  ),
+                ],
+              ),
             ),
           ),
           SliverToBoxAdapter(
@@ -66,25 +63,25 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: homeProvider.mainActivities
+                    children: provider.mainActivities
                         .map((activity) => ActivityTile(activity: activity))
                         .toList(),
                   ),
                 ),
-                const Gap(16.0),
+                const Gap(8.0),
                 SectionHeader(
                   title: 'Now Showing',
                   subtitle: 'Cinema',
                   onTap: () => context.push('/movies'),
                 ),
                 SizedBox(
-                  height: 250.0,
+                  height: 200.0,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                    itemCount: homeProvider.movies.length,
+                    itemCount: provider.movies.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final movie = homeProvider.movies[index];
+                      final movie = provider.movies[index];
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 2.0),
                         child: MovieCard(movie: movie),
@@ -102,9 +99,9 @@ class _HomePageState extends State<HomePage> {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                    itemCount: homeProvider.events.length,
+                    itemCount: provider.events.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final event = homeProvider.events[index];
+                      final event = provider.events[index];
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 2.0),
                         child: EventCard(event: event),
@@ -112,6 +109,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
+                const Gap(150.0),
               ],
             ),
           ),

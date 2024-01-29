@@ -20,9 +20,7 @@ class EventCard extends StatelessWidget {
               color: Theme.of(context).colorScheme.surfaceVariant,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
-                side: BorderSide(
-                  color: Theme.of(context).colorScheme.outline,
-                ),
+                side: BorderSide.none,
               ),
               child: Image.asset(
                 event.imagePath,

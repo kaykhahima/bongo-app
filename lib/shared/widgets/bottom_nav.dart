@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,12 +25,9 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        statusBarColor: Theme.of(context).colorScheme.surface, // Status bar
-        statusBarIconBrightness: Brightness.light, // Status bar
-        systemNavigationBarColor: Colors.transparent, // Navigation bar
-        systemNavigationBarIconBrightness:
-            Brightness.light, //navigation bar icons
+      value: FlexColorScheme.themedSystemNavigationBar(
+        context,
+        systemNavBarStyle: FlexSystemNavBarStyle.transparent,
       ),
       child: BottomNavigationBar(
         currentIndex: widget.navShell.currentIndex,

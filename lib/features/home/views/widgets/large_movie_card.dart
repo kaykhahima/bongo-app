@@ -22,14 +22,12 @@ class LargeMovieCard extends StatelessWidget {
             color: Theme.of(context).colorScheme.surfaceVariant,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
-              side: BorderSide(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+              side: BorderSide.none,
             ),
             child: Image.asset(
               movie.posterPath,
               fit: BoxFit.cover,
-              height: 300.0,
+              height: 320.0,
               width: 230.0,
             ),
           ),

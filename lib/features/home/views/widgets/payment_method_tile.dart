@@ -1,14 +1,17 @@
 import 'package:bongo_app/features/home/models/payment_methods.dart';
+import 'package:bongo_app/features/home/provider/the_everything_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 class PaymentMethodTile extends StatelessWidget {
-  const PaymentMethodTile({super.key, required this.methods});
+  const PaymentMethodTile({super.key, required this.method});
 
-  final PaymentMethod methods;
+  final PaymentMethod method;
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<EverythingProvider>(context, listen: false);
+
     return Column(
       children: [
         ListTile(
@@ -21,27 +24,33 @@ class PaymentMethodTile extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                methods.logo,
+                method.logo,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           title: Text(
-            methods.name,
+            method.name,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Theme.of(context).colorScheme.outline,
                 ),
           ),
-          trailing: Icon(
-            Icons.arrow_forward_ios_rounded,
-            color: Theme.of(context).colorScheme.outline,
-          ),
-          onTap: () {},
+          trailing: Icon(method.isSelected ? Icons.check : null,
+              color: Theme.of(context).colorScheme.primary),
+          onTap: () {
+            //update selected method
+            provider.selectPaymentMethod(method);
+
+            //diselect saved cards
+            provider.removeSavedCards();
+          },
         ),
         Divider(
           indent: 16.0,
           endIndent: 16.0,
-          color: Theme.of(context).colorScheme.outline,
+          color: method.isSelected
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.outline,
         ),
       ],
     );

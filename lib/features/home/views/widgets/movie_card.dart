@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../models/movie.dart';
@@ -12,7 +11,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const width = 150.0;
-    const height = 180.0;
+    const height = 150.0;
 
     return GestureDetector(
       onTap: () {
@@ -24,15 +23,14 @@ class MovieCard extends StatelessWidget {
             color: Theme.of(context).colorScheme.surfaceVariant,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
-              side: BorderSide(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+              side: BorderSide.none,
             ),
             child: Image.asset(
               movie.posterPath,
               fit: BoxFit.cover,
               height: height,
               width: width,
+              alignment: Alignment.topCenter,
             ),
           ),
           SizedBox(

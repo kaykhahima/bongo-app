@@ -1,4 +1,4 @@
-import 'package:bongo_app/features/home/provider/home_provider.dart';
+import 'package:bongo_app/features/home/provider/the_everything_provider.dart';
 import 'package:bongo_app/shared/widgets/alerts.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -40,7 +40,7 @@ class PaymentPage extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          Consumer<HomeProvider>(builder: (context, provider, _) {
+          Consumer<EverythingProvider>(builder: (context, provider, _) {
             final savedCards = provider.savedCards;
             return ListView.builder(
               itemCount: savedCards.length,
@@ -60,7 +60,7 @@ class PaymentPage extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          Consumer<HomeProvider>(builder: (context, provider, _) {
+          Consumer<EverythingProvider>(builder: (context, provider, _) {
             final methods = provider.paymentMethods;
             return ListView.builder(
               itemCount: methods.length,
@@ -68,22 +68,22 @@ class PaymentPage extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 final method = methods[index];
-                return PaymentMethodTile(methods: method);
+                return PaymentMethodTile(method: method);
               },
             );
           }),
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 48.0),
             child: PrimaryButton(
               label: 'Proceed',
               onPressed: () {
-                context.go('/home');
+                context.go('/');
                 Alerts.show(
                   context: context,
                   title: 'Success',
                   message: 'Purchase completed',
-                  type: AlertType.info,
+                  type: AlertType.success,
                 );
               },
             ),
