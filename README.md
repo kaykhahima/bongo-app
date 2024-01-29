@@ -1,16 +1,16 @@
-# bongo_app
+# Bongo App
 
-A new Flutter project.
+A Mobile App UI based on this [behance design](https://www.behance.net/gallery/189990427/Bongo-App-Revolutionizing-Entertainment-Discovery) by [@99Zaburi](https://x.com/99Zaburi?s=20)
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+| Home | Movies | Booking |
+| ------------- |------------- |------------- |
+| ![Home Page](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/home.jpg "Home page")  | ![Movies Page](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/movies_page.jpg "Movies page")  | ![Movie Booking](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/movie_booking.jpg "Movie booking")  |
 
-A few resources to get you started if this is your first Flutter project:
+| Venues | Seats | Payment |
+| ------------- |------------- |------------- |
+ ![Movie Venues](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/movie_venues.jpg "Movie venues")  | ![Movie Seats](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/movie_seats.jpg "Movie seats")  | ![Payment page](https://github.com/kaykhahima/bongo-app/blob/main/assets/images/screenshots/payment_page.jpg "Payment page")  |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
