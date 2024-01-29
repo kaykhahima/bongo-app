@@ -52,7 +52,7 @@ class _BlurredBottomBarState extends State<BlurredBottomBar> {
                         children: [
                           Icon(
                             navItems[i].icon,
-                            color: Colors.grey,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                           const Gap(4.0),
                           Text(
@@ -61,7 +61,8 @@ class _BlurredBottomBarState extends State<BlurredBottomBar> {
                                 .textTheme
                                 .labelSmall
                                 ?.copyWith(
-                                  color: Colors.grey,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
                                 ),
                           ),
                         ],
@@ -98,7 +99,7 @@ class NavItem {
 
 List<NavItem> navItems = [
   NavItem(
-    icon: Icons.home_filled,
+    icon: Icons.home_outlined,
     label: 'Home',
     onTap: () {},
   ),
