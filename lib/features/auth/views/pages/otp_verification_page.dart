@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -20,7 +21,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   final _otpVerificationFormKey = GlobalKey<FormState>();
   final _otpController = TextEditingController();
 
-  //60 seconds timer
+  //10 seconds timer
   late Timer _timer;
   int _start = 10;
 
@@ -60,6 +61,16 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
 
   @override
   Widget build(BuildContext context) {
+    //set status bar color
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Status bar
+        statusBarIconBrightness: Brightness.light, // Status bar
+        systemNavigationBarColor: Colors.transparent, // Navigation bar
+        systemNavigationBarIconBrightness:
+            Brightness.light, //navigation bar icons
+      ),
+    );
     return Scaffold(
       body: SafeArea(
         child: Padding(

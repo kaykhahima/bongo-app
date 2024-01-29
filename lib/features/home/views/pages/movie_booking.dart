@@ -1,11 +1,11 @@
 import 'package:bongo_app/features/home/models/movie.dart';
-import 'package:bongo_app/shared/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:palette_generator/palette_generator.dart';
 
+import '../../../../shared/widgets/button.dart';
 import '../widgets/venue_times.dart';
 
 class MovieBooking extends StatefulWidget {
@@ -175,14 +175,14 @@ class _MovieBookingState extends State<MovieBooking> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 48.0),
                   child: PrimaryButton(
-                    onTap: () => context.push('/movies/seat-selection',
+                    onPressed: () => context.push('/movies/seat-selection',
                         extra: widget.movie),
-                    title: 'Book',
+                    label: 'Book',
                   ),
                 ),
-                const Gap(56.0),
               ],
             ),
           )

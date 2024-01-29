@@ -17,14 +17,6 @@ class SeatSelectionPage extends StatefulWidget {
 }
 
 class _SeatSelectionPageState extends State<SeatSelectionPage> {
-  final List<bool> _selectedSeats = List.generate(56, (index) => false);
-
-  void _toggleSeatSelection(int index) {
-    setState(() {
-      _selectedSeats[index] = !_selectedSeats[index];
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +40,7 @@ class _SeatSelectionPageState extends State<SeatSelectionPage> {
               ),
               const Gap(24.0),
               const SeatGrid(),
-              const Gap(24.0),
+              const Gap(56.0),
               PrimaryButton(
                   onPressed: () => context.push('/movies/payment'),
                   label: 'Get Tickets'),

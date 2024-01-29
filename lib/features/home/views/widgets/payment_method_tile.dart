@@ -43,7 +43,6 @@ class PaymentMethodTile extends StatelessWidget {
           endIndent: 16.0,
           color: Theme.of(context).colorScheme.outline,
         ),
-        const Gap(10.0),
       ],
     );
   }

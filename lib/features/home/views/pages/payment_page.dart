@@ -1,8 +1,11 @@
 import 'package:bongo_app/features/home/provider/home_provider.dart';
+import 'package:bongo_app/shared/widgets/alerts.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../shared/widgets/button.dart';
 import '../widgets/payment_card_tile.dart';
 import '../widgets/payment_method_tile.dart';
 
@@ -69,6 +72,22 @@ class PaymentPage extends StatelessWidget {
               },
             );
           }),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+            child: PrimaryButton(
+              label: 'Proceed',
+              onPressed: () {
+                context.go('/home');
+                Alerts.show(
+                  context: context,
+                  title: 'Success',
+                  message: 'Purchase completed',
+                  type: AlertType.info,
+                );
+              },
+            ),
+          )
         ],
       ),
     );

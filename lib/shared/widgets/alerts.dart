@@ -22,7 +22,7 @@ class Alerts {
       title: Text(title),
       description: Text(message),
       alignment: Alignment.topCenter,
-      autoCloseDuration: const Duration(seconds: 2),
+      autoCloseDuration: const Duration(seconds: 3),
       showProgressBar: true,
       dragToClose: true,
       icon: _getToastNotificationIcon(type),

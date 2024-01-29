@@ -1,6 +1,7 @@
 import 'package:bongo_app/features/home/provider/home_provider.dart';
 import 'package:bongo_app/features/home/views/widgets/movie_card.dart';
 import 'package:bongo_app/features/home/views/widgets/section_header.dart';
+import 'package:bongo_app/shared/widgets/input_field.dart';
 import 'package:bongo_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +13,8 @@ import 'package:provider/provider.dart';
 import '../widgets/activities_tile.dart';
 import '../widgets/event_card.dart';
 import '../widgets/event_promo_card.dart';
+import '../widgets/home_input_field.dart';
+import '../widgets/promo_events_carousel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,41 +24,38 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _searchController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
+          const SliverAppBar(
             floating: true,
             forceElevated: true,
             expandedHeight: 250,
             elevation: 0,
             flexibleSpace: FlexibleSpaceBar(
-              background: ExpandableCarousel(
-                options: CarouselOptions(
-                  height: 250.0,
-                  viewportFraction: 1.0,
-                  showIndicator: true,
-                  autoPlay: true,
-                  slideIndicator: CircularStaticIndicator(
-                    indicatorRadius: 3.0,
-                    itemSpacing: 10.0,
-                    currentIndicatorColor:
-                        Theme.of(context).colorScheme.primary,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 10.0),
-                  ),
+              background: Stack(children: [
+                EventsPromoCarousel(),
+                SizedBox(
+                  height: 80,
+                  child: HomeSearchField(),
                 ),
-                items: homeProvider.events.map((event) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return EventPromoCard(event: event);
-                    },
-                  );
-                }).toList(),
-              ),
+              ]),
             ),
           ),
           SliverToBoxAdapter(

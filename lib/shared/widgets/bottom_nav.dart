@@ -26,30 +26,39 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: widget.navShell.currentIndex,
-      selectedFontSize: 13,
-      unselectedFontSize: 13,
-      onTap: (int index) {
-        setState(() {
-          selectedIndex = index;
-          _goToBranch(index);
-        });
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.airplane_ticket_outlined),
-          label: 'Tickets',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_2_outlined),
-          label: 'Profile',
-        ),
-      ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).colorScheme.surface, // Status bar
+        statusBarIconBrightness: Brightness.light, // Status bar
+        systemNavigationBarColor: Colors.transparent, // Navigation bar
+        systemNavigationBarIconBrightness:
+            Brightness.light, //navigation bar icons
+      ),
+      child: BottomNavigationBar(
+        currentIndex: widget.navShell.currentIndex,
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
+        onTap: (int index) {
+          setState(() {
+            selectedIndex = index;
+            _goToBranch(index);
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.airplane_ticket_outlined),
+            label: 'Tickets',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_2_outlined),
+            label: 'Profile',
+          ),
+        ],
+      ),
     );
   }
 }
